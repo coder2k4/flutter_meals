@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'category_item.dart';
-import 'dummy_data.dart';
+import '../widgets/category_item.dart';
+import '../dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Еда!'),
-      ),
-      body: GridView(
+    return GridView(
         padding: EdgeInsets.all(25),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200, // минимальная ширина ячейки
@@ -25,7 +21,6 @@ class CategoriesScreen extends StatelessWidget {
                   id: catData.id,
                 ))
             .toList(),
-      ),
     );
   }
 }
