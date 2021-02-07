@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meals/screens/filters_screen.dart';
 
 class MainDrawer extends StatelessWidget {
-
-  Widget buildListTile(String title, IconData icon){
+  Widget buildListTile(String title, IconData icon, Function tapHandler) {
     return ListTile(
       leading: Icon(
         icon,
@@ -16,9 +16,7 @@ class MainDrawer extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: (){
-        // route
-      },
+      onTap: tapHandler,
     );
   }
 
@@ -44,8 +42,20 @@ class MainDrawer extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          buildListTile('Ресторан', Icons.restaurant),
-          buildListTile('Настройки', Icons.settings)
+          buildListTile(
+            'Ресторан',
+            Icons.restaurant,
+            () {
+              Navigator.of(context).pushReplacementNamed('/');
+            },
+          ),
+          buildListTile(
+            'Фильтр',
+            Icons.settings,
+            () {
+              Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
+            },
+          )
         ],
       ),
     );
